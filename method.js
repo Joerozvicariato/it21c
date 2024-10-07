@@ -38,6 +38,6 @@ class Person {
  }
 }
 // Creating an object (instance) of the Person class
-const person1 = new Person('Xhinsade Riri', 20, 'Tired');
+const person1 = new Person('Joeroz Vicariato', 20, 'oks lang');
 // Calling methods
 personOne.displayInfo();    
