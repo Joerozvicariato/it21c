@@ -10,3 +10,13 @@ const person ={
   console.log("Type: "  +art.type);
   console.log("Entry No.: " + art.entry);  
   console.log("~~~~~~~~~~~~~~~~~~~~~~~~");
+
+   // Class definition
+class Person {
+    constructor(name, age, status) {
+        this.name = name;
+        this.age = age;
+        this.status = status;
+    }
+    
+}
