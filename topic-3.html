@@ -4,6 +4,92 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Topic 3 - Access Modifiers and Encapsulation</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f0f4f8;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            max-width: 600px;
+            width: 100%;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        #personOne {
+            background-color: #e8f0fe;
+            border-radius: 4px;
+            padding: 1rem;
+            line-height: 1.6;
+        }
+        strong {
+            color: #3498db;
+        }
+    </style>
+    <title>Topic 3 - Access Modifiers and Encapsulation</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Topic 3 - Access Modifiers and Encapsulation</h1>
+        <div id="personOne"></div>
+    </div>
+
+    <script>
+        class Person {
+            #name;
+            #age;
+            #occupation;
+
+            constructor(name, age, occupation) {
+                this.#name = name;
+                this.#age = age;
+                this.#occupation = occupation;
+            }
+
+            get name() {
+                return this.#name;
+            }
+
+            get age() {
+                return this.#age;
+            }
+
+            get occupation() {
+                return this.#occupation;
+            }
+
+            displayInfo() {
+                console.log("Name: " + this.name);
+                console.log("Age: " + this.age);
+                console.log("Occupation: " + this.occupation);
+            }
+
+            displayInfoHTML() {
+                const personElement = document.getElementById('personOne');
+                personElement.innerHTML = `
+                    <strong>Name:</strong> ${this.name}<br>
+                    <strong>Age:</strong> ${this.age}<br>
+                    <strong>Occupation:</strong> ${this.occupation}
+                `;
+            }
+        }
+
+        const personOne = new Person('CJoeroz', 20, 'Student');
+        personOne.displayInfo();
+        personOne.displayInfoHTML();
+    </script>
 </head>
 <body>
     
