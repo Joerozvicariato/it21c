@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Topic 2 - Methods </title>
+    <title>Person and Art Information</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    
     <style>
-    body {
+        body {
             font-family: 'Roboto', sans-serif;
             display: flex;
             justify-content: center;
@@ -17,7 +16,7 @@
             background-color: #f0f0f0;
         }
         .container {
-            text-align: center;
+            text-align: left;
             background-color: white;
             padding: 2rem;
             border-radius: 10px;
@@ -25,53 +24,80 @@
         }
         h1 {
             color: #333;
+            text-align: center;
         }
         h2 {
             color: #666;
         }
-</style>
+        pre {
+            background-color: #f4f4f4;
+            padding: 1rem;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Person and Art Information</h1>
+        <h2>Person Information</h2>
+        <div id="person1"></div>
+        <h2>Art Registration Details</h2>
+        <pre id="artInfo"></pre>
+    </div>
 
-    <body>
-    <h1>Topic 2 - Methods</h1>
-    <h1 id="personOne"></h1>
+    <script>
+        const person = {
+            name: "Joeroz Vicariato",
+            age: 20,
+            status: "oks lang"
+        };
 
-     <script>
-            // Class definition
-            class Person {
+        const art = {
+            name: "Mona Lisa",
+            type: "Painting",
+            entry: "A001"
+        };
+
+        // Process and Output Art Information
+        const artInfoElement = document.getElementById('artInfo');
+        artInfoElement.textContent = `Art Registration Details
+Name: ${art.name}
+Type: ${art.type}
+Entry No.: ${art.entry}
+~~~~~~~~~~~~~~~~~~~~~~~~`;
+
+        // Class definition
+        class Person {
             constructor(name, age, status) {
                 this.name = name;
                 this.age = age;
                 this.status = status;
             }
-        
-         
-        // Method to display person information in the console
-         displayInfo() {
-        console.log("Name: " + this.name);
-        console.log("Age: " + this.age);
-        console.log("Status: " + this.status);
-        }
-           
-      
-      // Method to display person information in the HTML
-      displayInfoHTML() {
-        const personElement = document.getElementById('Person1');
-        personElement.innerHTML = `
-            <strong>Name:</strong> ${this.name}<br>
-            <strong>Age:</strong> ${this.age}<br>
-            <strong>Occupation:</strong> ${this.status}
-        `;
-       }
-    }
 
-    // Creating an object (instance) of the Person class
-  const personOne = new Person('liling', 20, 'wana na mao');
+            // Method to display person information in the console
+            displayInfo() {
+                console.log("Name: " + this.name);
+                console.log("Age: " + this.age);
+                console.log("Status: " + this.status);
+            }
+
+            // Method to display person information in the HTML
+            displayInfoHTML() {
+                const personElement = document.getElementById('person1');
+                personElement.innerHTML = `
+                    <strong>Name:</strong> ${this.name}<br>
+                    <strong>Age:</strong> ${this.age}<br>
+                    <strong>Status:</strong> ${this.status}
+                `;
+            }
+        }
+
+        // Creating an object (instance) of the Person class
+        const person1 = new Person(person.name, person.age, person.status);
         
         // Calling methods
-        personOne.displayInfo();       
-        personOne.displayInfoHTML(); 
-
-
+        person1.displayInfo();
+        person1.displayInfoHTML();
     </script>
 </body>
 </html>
