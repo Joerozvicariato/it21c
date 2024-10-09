@@ -53,3 +53,5 @@ class Student extends Person {
 }
 // Creating an instance of the Student class
 const studentOne = new Student('Joeroz', 20, 'Student', 'wala');
+// Calling methods
+studentOne.displayInfo();
