@@ -8,4 +8,9 @@ class Person{
         this.#age = age;
         this.#occupation = occupation;
     }
+    //Getters
+    get name(){
+        return this.#name;
+    }
+   
 }
