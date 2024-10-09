@@ -34,3 +34,9 @@ class Person{
         `;
     }
 }
+class Student extends Person {
+    constructor(name, age, gender, major) {
+        super(name, age, gender);
+        this.major = major;
+    }
+}
