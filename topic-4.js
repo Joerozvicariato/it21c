@@ -51,3 +51,5 @@ class Student extends Person {
         personElement.innerHTML += `<br><strong>Major:</strong> ${this.major}`;
     }
 }
+// Creating an instance of the Student class
+const studentOne = new Student('Joeroz', 20, 'Student', 'wala');
