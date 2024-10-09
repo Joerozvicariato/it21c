@@ -2,11 +2,11 @@ class Person{
     //Private Fields
     #name;
     #age;
-    #occupation;
+    #gender;
     constructor(name, age, occupation){
         this.#name = name;
         this.#age = age;
-        this.#occupation = occupation;
+        this.#gender = gender;
     }
     //Getters
     get name(){
@@ -15,7 +15,7 @@ class Person{
     get age(){
         return this.#age;
     }
-    get occupation(){
-        return this.#occupation;
+    get gender(){
+        return this.#gender;
     }
 }
