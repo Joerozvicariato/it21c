@@ -15,5 +15,7 @@ class Person{
     get age(){
         return this.#age;
     }
-    
+    get occupation(){
+        return this.#occupation;
+    }
 }
