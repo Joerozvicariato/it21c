@@ -101,3 +101,5 @@ createLineChart() {
     new Chart(this.lineCtx, config); 
 }
 }
+const lineChartCreator = new LineChart('data.json'); 
+lineChartCreator.init();
