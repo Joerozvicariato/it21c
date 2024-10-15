@@ -29,7 +29,7 @@ class LineChart extends ChartCreator {
         super(dataUrl);
         this.lineCtx = document.getElementById('lineChart');
     }
-      // Overriding createCharts to create the line chart
+    // Overriding createCharts to create the line chart
     createCharts() {
         const ctx = this.lineCtx.getContext('2d');
         const lineChart = new Chart(ctx, {
@@ -86,3 +86,5 @@ class LineChart extends ChartCreator {
         });
     }
 }
+const lineChartCreator = new LineChart('data.json');
+lineChartCreator.init(); 
