@@ -27,7 +27,7 @@ class ChartCreator {
 class LineChart extends ChartCreator {
     constructor(dataUrl) {
         super(dataUrl);
-        this.lineCtx = document.getElementById('lineChart');
+        this.lineCtx = document.getElementById('linechart');
     }
     // Overriding createCharts to create the line chart
     createCharts() {
@@ -88,40 +88,3 @@ class LineChart extends ChartCreator {
 }
 const lineChartCreator = new LineChart('data.json');
 lineChartCreator.init(); 
-class BarChart extends ChartCreator {
-    constructor(dataUrl) {
-        super(dataUrl);
-        this.barCtx = document.getElementById('barChart');
-    }
-
-    createCharts() {
-        this.createBarChart();
-    }
-
-    createBarChart() {
-        new Chart(this.barCtx, {
-            type: 'bar',
-            data: {
-                labels: this.chartData.labels,
-                datasets: [{
-                    label: '# of Votes',
-                    data: this.chartData.data,
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
-            }
-        });
-    }
-}
-
-const barChartCreator = new BarChart('data.json');
-barChartCreator.init();
-
-console.log(lineChartCreator.dataUrl);
-console.log(barChartCreator.dataUrl);
