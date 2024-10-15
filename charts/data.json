@@ -1,4 +1,4 @@
 {
-    "labels": ["2021", "2022", "2023", "2024"],
-    "data": [5500, 8700, 10000, 1000000]
+    "labels": ["January", "February", "March", "April", "May", "June"],
+    "data": [12, 19, 3, 5, 2, 3]
 }

@@ -1,3 +1,4 @@
+
 class ChartCreator {
     constructor(dataUrl) {
         this.dataUrl = dataUrl;
@@ -6,10 +7,9 @@ class ChartCreator {
     async init() {
         await this.fetchData();
         if (this.chartData) {
-            this.createCharts();
+            this.createCharts(); 
         }
     }
-
     async fetchData() {
         try {
             const response = await fetch(this.dataUrl);
@@ -23,37 +23,19 @@ class ChartCreator {
     }
 
     createCharts() {
-
         throw new Error('createCharts() must be implemented in subclasses');
     }
 }
-class LineChart extends ChartCreator {
-}
 
-class LineChart extends ChartCreator {
-    constructor(dataUrl) {
-        super(dataUrl);
-        this.lineCtx = document.getElementById('lineChart');
-    }
-    createCharts() {
-        this.createLineChart();
-    }
-}
-
-// Method to create the line chart
+// Subclass for creating a line chart
 class LineChart extends ChartCreator {
     constructor(dataUrl) {
         super(dataUrl);
         this.lineCtx = document.getElementById('lineChart'); 
     }
 
-    init() {
-        document.addEventListener('DOMContentLoaded', () => {
-            this.createLineChart(); 
-        });
-    }
-
-    createLineChart() {
+    // Overriding createCharts to create the line chart
+    createCharts() {
         const ctx = this.lineCtx.getContext('2d'); 
         const lineChart = new Chart(ctx, {
             type: 'line',
@@ -110,11 +92,44 @@ class LineChart extends ChartCreator {
     }
 }
 
-
-    // Create the chart
-    new Chart(this.lineCtx, config); 
-
-
+// Initialize and create the chart
 const lineChartCreator = new LineChart('data.json'); 
-lineChartCreator.init();
+lineChartCreator.init(); 
 
+class BarChart extends ChartCreator {
+    constructor(dataUrl) {
+        super(dataUrl);
+        this.barCtx = document.getElementById('barChart');
+    }
+
+    createCharts() {
+        this.createBarChart();
+    }
+
+    createBarChart() {
+        new Chart(this.barCtx, {
+            type: 'bar',
+            data: {
+                labels: this.chartData.labels,
+                datasets: [{
+                    label: '# of Votes',
+                    data: this.chartData.data,
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    }
+}
+
+const barChartCreator = new BarChart('data.json');
+barChartCreator.init();
+
+console.log(lineChartCreator.dataUrl);
+console.log(barChartCreator.dataUrl);
