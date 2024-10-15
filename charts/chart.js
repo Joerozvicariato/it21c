@@ -103,3 +103,4 @@ createLineChart() {
 }
 const lineChartCreator = new LineChart('data.json'); 
 lineChartCreator.init();
+
