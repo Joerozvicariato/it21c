@@ -21,4 +21,9 @@ class ChartCreator {
             console.error('There has been a problem with your fetch operation:', error);
         }
     }
+
+    createCharts() {
+
+        throw new Error('createCharts() must be implemented in subclasses');
+    }
 }
