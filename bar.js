@@ -103,3 +103,5 @@ createCharts() {
     });
 }
 }
+const barChartCreator = new BarChart('data.json');
+barChartCreator.init();
